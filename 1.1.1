@@ -1,0 +1,18 @@
+from qqbot import QQBot
+
+# 创建一个QQBot实例
+bot = QQBot()
+
+# 定义自动回复的函数
+@bot.on_message()
+def auto_reply(message):
+    # 检查消息内容
+    if '你好' in message.content:
+        # 回复消息
+        bot.send_message(message.from_user, '你好，有什么可以帮助你的吗？')
+    elif '再见' in message.content:
+        bot.send_message(message.from_user, '再见，祝你有美好的一天！')
+
+# 启动QQBot
+if __name__ == '__main__':
+    bot.run()
